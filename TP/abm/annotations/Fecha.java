@@ -1,4 +1,4 @@
-package Annotations;
+package annotations;
 
 import java.lang.annotation.ElementType; 
 import java.lang.annotation.Retention; 
@@ -7,11 +7,11 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-public @interface Password
+public @interface Fecha
 {
 	String label();
-	String regex() default "";
-	int largoMin() default 5;
-	int largoMax() default 30;
+	int anioMax() default 2999;
+	int anioMin() default 1900;
+	boolean unico() default false;
 	String controlParaGUI() default "comboBox";
 }

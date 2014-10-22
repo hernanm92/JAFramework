@@ -1,6 +1,5 @@
 package classes;
 
-import Annotations.*;
 import java.lang.reflect.*;
 import java.util.Collections;
 import java.lang.annotation.Annotation;
@@ -8,11 +7,15 @@ import java.util.*;
 
 import javax.swing.JOptionPane;
 
+import annotations.*;
+
 
 public class Framework<T>
 {
 	public Class<?> objetoClass;
 	public ArrayList<T> listaObjetos = new ArrayList<T>();
+	public double SiguientePosX = 10;
+	public double SiguientePosY = 10;
 	
 	
 	
@@ -31,13 +34,66 @@ public class Framework<T>
 	//Muestra la interfaz grafica
 	public void MostrarVentana()
 	{
+		for(Field campo: objetoClass.getFields())
+		{
+			String nombreDelCampo = campo.getName();
+			MostrarLabel(nombreDelCampo, SiguientePosX, SiguientePosY);
+			MostrarControl( ObtenerAnnotation(nombreDelCampo), SiguientePosX, SiguientePosX);
+			
+		}
+		
+	}
+	
+	public void MostrarControl(AnnotationParaFramework annot, double PosX, double PosY)
+	{
+		// Muestra el control dependiendo de la annotation recibida
+		switch (annot.controlParaGUI())
+		{
+			case "textbox": 
+			{
+				MostrarTextBox(annot, PosX, PosY);
+				break;
+			}
+			case "combobox":
+			{
+				MostrarComboBox(annot, PosX, PosY);
+			}
+			default: 
+			{
+				
+			}
+		}
+		
+	}
+	
+	public void MostrarTextBox(AnnotationParaFramework annot, double PosX, double PosY)
+	{
+		
+		
+	}
+	
+	public void MostrarComboBox(AnnotationParaFramework annot, double PosX, double PosY)
+	{
+		
+	}
+	
+	public void MostrarLabel(String texto, double posX, double posY)
+	{
+		// Muestra una label con el texto y posicion enviados por parametro para luego ponerle al lado el campo para la introduccion de datos  EJ  NOMBRE :   [textbox para nombre] 
 		
 	}
 	
 	
+	public AnnotationParaFramework ObtenerAnnotation(String label)
+	{	
+		//Devuelve la annotation buscada
+		for(Field campo : objetoClass.getFields())
+		{
+			if (campo.getName()==label) return campo.getAnnotation(AnnotationParaFramework.class);
+		}
+		return null;
 	
-	
-	
+	}
 	
 	
 	// Alta simple
@@ -154,7 +210,7 @@ public class Framework<T>
 	
 	
 	
-	
+	// Devuelve los datos del objeto como un string (Para la lista)
 	public String LeerComoString(T objeto)
 	{
 		String ret = "";
@@ -180,6 +236,24 @@ public class Framework<T>
 		
 		return ret;
 	}
+	
+	
+	public boolean ValidarCampo()
+	{
+		return true;
+	}
+	
+	public boolean ValidarCampos()
+	{
+		return true;
+	}
+	
+	public boolean ValidarRegex()
+	{
+		
+		return true;
+	}
+	
 	
 }
 

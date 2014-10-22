@@ -1,4 +1,4 @@
-package Annotations;
+package annotations;
 
 import java.lang.annotation.ElementType; 
 import java.lang.annotation.Retention; 
@@ -7,11 +7,12 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-public @interface Fecha
+public @interface Numero
 {
 	String label();
-	int anioMax() default 2999;
-	int anioMin() default 1900;
+	int valorMax() default 999999999;
+	int valorMin() default -99999999;
+	boolean soloPositivo() default false;
 	boolean unico() default false;
 	String controlParaGUI() default "comboBox";
 }

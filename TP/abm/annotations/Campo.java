@@ -1,4 +1,4 @@
-package Annotations;
+package annotations;
 
 public @interface Campo
 {
