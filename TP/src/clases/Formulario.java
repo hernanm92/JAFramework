@@ -35,7 +35,7 @@ public class Formulario<T> extends JFrame
     {
     	fw = framework;
         setLayout(null);
-        setBounds(150,150,800,600);
+        setBounds(150,50,800,650);
         setTitle("ABM FRAMEWORK ALGORITMOS II");
         setResizable(false);
         agregarFiltro();
@@ -86,7 +86,7 @@ public class Formulario<T> extends JFrame
     	BotonesPanel = new JPanel();
     	BotonesPanel.setLayout(new FlowLayout());
     	BotonesPanel.setBackground(Color.WHITE);
-    	BotonesPanel.setBounds(0,500,450,80);
+    	BotonesPanel.setBounds(0,550,450,80);
     	add(BotonesPanel);
     }
     
