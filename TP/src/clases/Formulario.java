@@ -38,6 +38,7 @@ public class Formulario<T> extends JFrame
         setBounds(150,150,800,600);
         setTitle("ABM FRAMEWORK ALGORITMOS II");
         setResizable(false);
+        agregarFiltro();
         AgregarPanelDeAlta();
         AgregarPanelDeLista();
         AgregarPanelBotones();
@@ -93,7 +94,7 @@ public class Formulario<T> extends JFrame
     {
     	AltaPanel = new JPanel();
         AltaPanel.setLayout(null);
-        AltaPanel.setBounds(0,0,400,500);
+        AltaPanel.setBounds(0,50,400,500);
         add(AltaPanel);
     }
     
@@ -101,7 +102,7 @@ public class Formulario<T> extends JFrame
     {
     	ListaPanel = new JPanel();
     	ListaPanel.setLayout(new FlowLayout());
-    	ListaPanel.setBounds(400,0,400,800);
+    	ListaPanel.setBounds(400,50,400,800);
     	add(ListaPanel);
     }
     
@@ -229,9 +230,20 @@ public class Formulario<T> extends JFrame
 		
 		
 		AgregarScrollPanel(Tabla);   // Se inserta la tabla en un ScrollPanel para que se pueda scrollear
-		 
-		
-				
-		
+		 	
     }
+    
+    public void agregarFiltro(){
+    	JLabel campo1 = new JLabel();
+		campo1.setText("Busqueda:");
+		this.add(campo1);
+		campo1.setBounds(160,13,100,15);
+		
+		JTextField input1 = new JTextField();
+		input1.setText("");
+		input1.setBounds(230,5,420,30);
+		this.add(input1);
+    }
+    
+    
 }

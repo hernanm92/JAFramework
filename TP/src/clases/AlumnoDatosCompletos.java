@@ -24,8 +24,8 @@ public class AlumnoDatosCompletos
 	public String mail;
 	@AnnotationParaFramework(label="sexo", tipo="cadena", regex="MF", largoMin=1, largoMax=1)
 	public char sexo;
-	@AnnotationParaFramework(label="a", tipo="cadena", largoMax = 40, largoMin = 5)
-	public String a;
+	@AnnotationParaFramework(label="telefono", tipo="numero", valorMax = 1599999999, valorMin = 40000000)
+	public int telefono;
 	@AnnotationParaFramework(label="b", tipo="cadena", largoMax = 40, largoMin = 5)
 	public String b;
 	@AnnotationParaFramework(label="c", tipo="cadena", largoMax = 40, largoMin = 5)
