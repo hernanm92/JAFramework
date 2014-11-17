@@ -8,7 +8,7 @@ import java.lang.reflect.Field;;
 	
 
 
-public class Alumno 
+public class AlumnoDatosCompletos 
 {
 	
 	
@@ -24,16 +24,49 @@ public class Alumno
 	public String mail;
 	@AnnotationParaFramework(label="sexo", tipo="cadena", regex="MF", largoMin=1, largoMax=1)
 	public char sexo;
+	@AnnotationParaFramework(label="a", tipo="cadena", largoMax = 40, largoMin = 5)
+	public String a;
+	@AnnotationParaFramework(label="b", tipo="cadena", largoMax = 40, largoMin = 5)
+	public String b;
+	@AnnotationParaFramework(label="c", tipo="cadena", largoMax = 40, largoMin = 5)
+	public String c;
+	@AnnotationParaFramework(label="d", tipo="cadena", largoMax = 40, largoMin = 5)
+	public String d;
+	@AnnotationParaFramework(label="e", tipo="cadena", largoMax = 40, largoMin = 5)
+	public String e;
+	@AnnotationParaFramework(label="f", tipo="cadena", largoMax = 40, largoMin = 5)
+	public String f;
+	@AnnotationParaFramework(label="g", tipo="cadena", largoMax = 40, largoMin = 5)
+	public String g;
+	@AnnotationParaFramework(label="h", tipo="cadena", largoMax = 40, largoMin = 5)
+	public String h;
+	@AnnotationParaFramework(label="i", tipo="cadena", largoMax = 40, largoMin = 5)
+	public String i;
+	@AnnotationParaFramework(label="j", tipo="cadena", largoMax = 40, largoMin = 5)
+	public String j;
+	@AnnotationParaFramework(label="k", tipo="cadena", largoMax = 40, largoMin = 5)
+	public String k;
+	@AnnotationParaFramework(label="l", tipo="cadena", largoMax = 40, largoMin = 5)
+	public String l;
+	@AnnotationParaFramework(label="m", tipo="cadena", largoMax = 40, largoMin = 5)
+	public String m;
+	@AnnotationParaFramework(label="n", tipo="cadena", largoMax = 40, largoMin = 5)
+	public String n;
+	@AnnotationParaFramework(label="o", tipo="cadena", largoMax = 40, largoMin = 5)
+	public String o;
+	
+	
+	
 	
 	
 	
 
-	public Alumno()
+	public AlumnoDatosCompletos()
 	{
 		
 	}
 	
-	public Alumno(String nombree, int legajoo, int edadd, String domicilioo, String maill, char sexoo)
+	public AlumnoDatosCompletos(String nombree, int legajoo, int edadd, String domicilioo, String maill, char sexoo)
 	{
 		setNombre(nombree);
 		setLegajo(legajoo);
