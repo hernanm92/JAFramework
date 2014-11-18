@@ -23,6 +23,7 @@ public class Framework<T>
 {
 	public Class<?> objetoClass;
 	public ArrayList<T> listaObjetos = new ArrayList<T>();
+	public ArrayList<T> listaObjetosFiltrada = new ArrayList<T>();
 	public int SiguientePosX = 10;
 	public int SiguientePosY = 10;
 	public Formulario<T> form = new Formulario<T>(this);
@@ -165,8 +166,15 @@ public class Framework<T>
 		return listaObjetos.indexOf(objetoBuscado);			
 	}
 	
-	
-	
+	// modifica la lista filtrada (que es la que se va a mostrar en la grilla)
+	public void filtrar(String texto){
+		listaObjetosFiltrada.clear();
+		for(T elemento : listaObjetos){
+			if(this.LeerComoString(elemento).toLowerCase().contains(texto.toLowerCase())){ //filtro por cualquier string que tenga en sus atributos
+				listaObjetosFiltrada.add(elemento);
+			}
+		}
+	}
 	
 	
 	
