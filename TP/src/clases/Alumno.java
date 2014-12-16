@@ -3,7 +3,8 @@ package clases;
 import java.lang.reflect.Method;
 
 import Annotations.*;
-import java.lang.reflect.Field;;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
 
 	
 
@@ -12,19 +13,38 @@ public class Alumno
 {
 	
 	
-	@AnnotationParaFramework(label="nombre", tipo="cadena", largoMax = 40, largoMin = 5)
+	@AnnotationParaFramework(label="Nombre", tipo="cadena", largoMax = 40, largoMin = 1)
 	public String nombre;
-	@AnnotationParaFramework(label= "legajo", tipo ="numero",valorMax=9999999, valorMin = 900000, unico = true)
+	@AnnotationParaFramework(label= "Legajo", tipo ="numero",valorMax=9999999, valorMin = 1, unico = true)
 	public int legajo;
-	@AnnotationParaFramework(label="edad", tipo="numero" ,valorMax = 99999999, valorMin = 1)
+	@AnnotationParaFramework(label="Edad", tipo="numero" ,valorMax = 100, valorMin = 1)
 	public int edad;
-	@AnnotationParaFramework(label="domicilio", tipo="cadena")
+	@AnnotationParaFramework(label="Domicilio", tipo="cadena")
 	public String domicilio;
-	@AnnotationParaFramework(label="mail",tipo="cadena" ,largoMin = 5, regex = "^[_a-z0-9-]+(\\.[_a-z0-9-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,3})$  ") //Supuestamente es el regex para mails 
+	@AnnotationParaFramework(label="Signo", tipo="cadena", controlParaGUI="combobox", opcionesComboBox="Leo/Libra/Sagitario/Capricornio/Acuario/Géminis")
+	public String signo;
+	@AnnotationParaFramework(label="Mail",tipo="cadena" ,largoMin = 5, regex = "mail") 
 	public String mail;
-	@AnnotationParaFramework(label="sexo", tipo="cadena", regex="MF", largoMin=1, largoMax=1)
+	@AnnotationParaFramework(label="Rubio", tipo="bool", controlParaGUI="checkbox")
+	public Boolean rubio;
+	@AnnotationParaFramework(label="Sexo", tipo="caracter", regex="MF", largoMin=1, largoMax=1)
 	public char sexo;
+	@AnnotationParaFramework(label="Nacimiento", tipo="fecha", regex="fecha", anioMin=1900, anioMax=2015)
+	public String nacimiento;
 	
+	
+
+
+
+
+
+
+
+	public void PasarABaseDeDatos(ArrayList<Alumno> ListaObjetos)
+	{
+		// METODO DEFINIDO POR EL USUARIO QUE RECIBE LA LISTA DE OBJETOS FINAL DEL FRAMEWORK Y SE ENCARGA DE ENVIARLOS 
+		// A LA BASE DE DATOS 
+	}
 	
 	
 
@@ -33,7 +53,7 @@ public class Alumno
 		
 	}
 	
-	public Alumno(String nombree, int legajoo, int edadd, String domicilioo, String maill, char sexoo)
+	public Alumno(String nombree, int legajoo, int edadd, String domicilioo, String maill, char sexoo, String signoo, boolean rubioo, String nacimientoo)
 	{
 		setNombre(nombree);
 		setLegajo(legajoo);
@@ -41,7 +61,37 @@ public class Alumno
 		setDomicilio(domicilioo);
 		setMail(maill);
 		setSexo(sexoo);
-		
+		setSigno(signoo);
+		setRubio(rubioo);
+		setNacimiento(nacimientoo);
+	}
+	
+	
+	
+	public String getNacimiento()
+	{
+		return nacimiento;
+	}
+
+
+
+	public void setNacimiento(String nacimiento)
+	{
+		this.nacimiento=nacimiento;
+	}
+	
+	
+	
+	public Boolean getRubio()
+	{
+		return rubio;
+	}
+
+
+
+	public void setRubio(Boolean rubio)
+	{
+		this.rubio=rubio;
 	}
 	
 	public char getSexo()
@@ -95,7 +145,15 @@ public class Alumno
 		this.mail=mail;
 	}
 	
-	
+	public String getSigno()
+	{
+		return signo;
+	}
+
+	public void setSigno(String signo)
+	{
+		this.signo=signo;
+	}
 	
 	
 	
